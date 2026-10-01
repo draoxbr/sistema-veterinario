@@ -40,8 +40,8 @@ export default function Sidebar() {
             HP
           </div>
           <div>
-            <h1 className="font-extrabold text-white text-base tracking-wide leading-tight">HealPetSystem</h1>
-            <p className="text-xs text-teal-400 font-semibold tracking-wider uppercase mt-0.5">Gestão Integrada</p>
+            <h1 className="font-extrabold text-white text-base tracking-wide leading-tight">CampVET</h1>
+            <p className="text-xs text-teal-400 font-semibold tracking-wider uppercase mt-0.5">Sistema de gerenciamento</p>
           </div>
         </div>
 

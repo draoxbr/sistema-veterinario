@@ -1,26 +1,41 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Tema Claro (Fundo suave com destaques em Roxo e Verde) */
+  --background: #8113ff;
+  --foreground: #0f172a;
+  
+  --primary-purple: #7c3aed;   /* Violeta principal */
+  --primary-green: #10b981;    /* Esmeralda vibrante */
+  --card-bg: #ffffff;
+  --border-color: #e2e8f0;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-purple-main: var(--primary-purple);
+  --color-green-main: var(--primary-green);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Tema Escuro (Fundo roxo bem escuro com destaque Neon/Verde) */
+    --background: #090714;      /* Roxo quase preto */
+    --foreground: #f3f4f6;
+    
+    --primary-purple: #a855f7;  /* Roxo neon / Purple-500 */
+    --primary-green: #22c55e;   /* Verde neon / Green-500 */
+    --card-bg: #130f26;         /* Card roxo escuro profuto */
+    --border-color: #271e4a;    /* Borda roxa discreta */
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, sans-serif;
+  min-height: 100vh;
 }

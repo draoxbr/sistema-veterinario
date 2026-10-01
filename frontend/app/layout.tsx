@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "HealPet System",
+  title: "Campvet",
   description: "Sistema de Gestão Integrada de Clínicas Veterinárias",
 };
 
@@ -26,19 +26,14 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}
     >
-     <body 
-        className="min-h-full flex text-slate-800 font-sans relative"
-        style={{
-          backgroundImage: "url('https://static.vecteezy.com/ti/fotos-gratis/p1/10511907-abstrato-design-moderno-fundo-branco-gratis-foto.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundAttachment: "fixed",
-        }}
-      >
-        <div className="absolute inset-0 bg-slate-100/40 backdrop-blur-[2px] pointer-events-none" />
+      <body className="min-h-full flex text-purple-100 bg-[#090714] font-sans relative overflow-x-hidden">
+        {/* Glow de fundo Roxo e Verde */}
+        <div className="fixed inset-0 pointer-events-none z-0">
+          <div className="absolute -top-40 -left-40 w-96 h-96 bg-purple-900/30 rounded-full blur-[128px]" />
+          <div className="absolute top-1/2 -right-40 w-96 h-96 bg-emerald-900/20 rounded-full blur-[128px]" />
+        </div>
 
         <div className="relative z-10 flex w-full min-h-screen">
           <Sidebar />

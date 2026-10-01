@@ -99,17 +99,17 @@ export default function ClinicasPage() {
 
   const renderContent = () => {
     if (loading) {
-      return <div className="p-8 text-center text-slate-500 font-medium">A carregar clínicas...</div>;
+      return <div className="p-8 text-center text-purple-400 font-medium">A carregar clínicas...</div>;
     }
 
     if (clinicas.length === 0) {
-      return <div className="p-8 text-center text-slate-400 font-medium">Nenhuma clínica encontrada.</div>;
+      return <div className="p-8 text-center text-purple-300/60 font-medium">Nenhuma clínica encontrada.</div>;
     }
 
     return (
       <div className="overflow-x-auto">
-        <table className="w-full text-left text-sm text-slate-600">
-          <thead className="bg-slate-50 text-slate-700 font-bold uppercase text-xs border-b border-slate-200/80">
+        <table className="w-full text-left text-sm text-purple-200">
+          <thead className="bg-purple-950/40 text-purple-300 font-bold uppercase text-xs border-b border-purple-900/40">
             <tr>
               <th scope="col" className="px-6 py-4">ID</th>
               <th scope="col" className="px-6 py-4">Nome da Clínica</th>
@@ -118,27 +118,27 @@ export default function ClinicasPage() {
               <th scope="col" className="px-6 py-4 text-right">Ações</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-slate-100">
+          <tbody className="divide-y divide-purple-900/30">
             {clinicas.map((clinica) => (
-              <tr key={clinica.id} className="hover:bg-slate-50/80 transition-colors">
-                <td className="px-6 py-4 font-bold text-slate-800">#{clinica.id}</td>
-                <td className="px-6 py-4 font-semibold text-slate-900">{clinica.nome}</td>
-                <td className="px-6 py-4 text-slate-600">{clinica.endereco || '—'}</td>
-                <td className="px-6 py-4 text-xs text-slate-500">
-                  <div className="font-mono text-slate-400">{clinica.telefone || '—'}</div>
+              <tr key={clinica.id} className="hover:bg-purple-900/20 transition-colors">
+                <td className="px-6 py-4 font-bold text-emerald-400">#{clinica.id}</td>
+                <td className="px-6 py-4 font-semibold text-purple-100">{clinica.nome}</td>
+                <td className="px-6 py-4 text-purple-300/80">{clinica.endereco || '—'}</td>
+                <td className="px-6 py-4 text-xs">
+                  <div className="font-mono text-emerald-400/90">{clinica.telefone || '—'}</div>
                 </td>
                 <td className="px-6 py-4 text-right space-x-2">
                   <button
                     type="button"
                     onClick={() => handleOpenEdit(clinica)}
-                    className="text-amber-600 hover:text-amber-800 font-medium text-xs px-2 py-1 rounded-sm hover:bg-amber-50 transition cursor-pointer"
+                    className="text-amber-400 hover:text-amber-300 font-medium text-xs px-2.5 py-1 rounded-lg hover:bg-amber-400/10 transition cursor-pointer"
                   >
                     Editar
                   </button>
                   <button
                     type="button"
                     onClick={() => handleDelete(clinica.id)}
-                    className="text-red-500 hover:text-red-700 font-medium text-xs px-2 py-1 rounded-sm hover:bg-red-50 transition cursor-pointer"
+                    className="text-red-400 hover:text-red-300 font-medium text-xs px-2.5 py-1 rounded-lg hover:bg-red-400/10 transition cursor-pointer"
                   >
                     Remover
                   </button>
@@ -152,27 +152,31 @@ export default function ClinicasPage() {
   };
 
   return (
-    <div className="space-y-6 pb-10">
-      <section className="bg-white/90 backdrop-blur-md rounded-sm border border-slate-200/70 shadow-sm overflow-hidden">
-        <header className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 p-6 border-b border-slate-200/80 bg-slate-50/50">
+    <div className="space-y-6 pb-10 min-h-screen text-purple-100">
+      <section className="bg-[#130f26] rounded-2xl border border-purple-900/50 shadow-xl shadow-purple-950/30 overflow-hidden">
+        {/* Cabeçalho do Card */}
+        <header className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 p-6 border-b border-purple-900/40 bg-purple-950/30">
           <div>
-            <h2 className="text-2xl font-extrabold text-slate-900 tracking-tight">Módulo de Clínicas</h2>
+            <h2 className="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-emerald-400 to-green-500 tracking-tight">
+              Módulo de Clínicas
+            </h2>
           </div>
           <button
             type="button"
             onClick={handleOpenCreate}
-            className="group relative inline-flex items-center gap-2 px-5 py-2.5 rounded-sm font-semibold bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white text-sm shadow-md shadow-teal-500/20 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+            className="group relative inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-sm shadow-lg shadow-emerald-500/20 hover:shadow-emerald-400/30 transition-all duration-200 cursor-pointer"
           >
             <span className="text-lg leading-none">+</span>
             <span>Nova Clínica</span>
           </button>
         </header>
 
-        <div className="px-6 py-4 border-b border-slate-100 flex justify-between items-center bg-white">
+        {/* Sub-cabeçalho da Tabela */}
+        <div className="px-6 py-4 border-b border-purple-900/30 flex justify-between items-center bg-[#130f26]">
           <div>
-            <h3 className="font-extrabold text-slate-800 text-base">Lista Geral de Clínicas</h3>
+            <h3 className="font-extrabold text-purple-200 text-base">Lista Geral de Clínicas</h3>
           </div>
-          <span className="text-xs bg-teal-50 text-teal-700 border border-teal-200/60 px-3 py-1 rounded-sm font-bold">
+          <span className="text-xs bg-emerald-950/60 text-emerald-400 border border-emerald-500/30 px-3 py-1 rounded-full font-bold">
             Total: {clinicas.length}
           </span>
         </div>
@@ -180,19 +184,28 @@ export default function ClinicasPage() {
         {renderContent()}
       </section>
 
+      {/* Modal Reestilizado */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-white/95 backdrop-blur-md rounded-sm max-w-md w-full p-6 shadow-2xl border border-slate-200/80">
-            <div className="flex justify-between items-center pb-4 mb-5 border-b border-slate-200/60 bg-slate-50/50 -mx-6 -mt-6 px-6 pt-6">
-              <h3 className="text-lg font-extrabold text-slate-900 tracking-tight">
+        <div className="fixed inset-0 bg-black/75 backdrop-blur-md z-50 flex items-center justify-center p-4">
+          <div className="bg-[#130f26] rounded-2xl max-w-md w-full p-6 shadow-2xl border border-purple-800/60 text-purple-100">
+            <div className="flex justify-between items-center pb-4 mb-5 border-b border-purple-900/40 -mx-6 -mt-6 px-6 pt-6 bg-purple-950/40">
+              <h3 className="text-lg font-extrabold text-purple-100 tracking-tight">
                 {editingClinica ? 'Editar Clínica' : 'Cadastrar Nova Clínica'}
               </h3>
-              <button type="button" onClick={handleCloseModal} className="text-slate-400 hover:text-slate-700 text-sm font-bold transition-colors cursor-pointer">✕</button>
+              <button
+                type="button"
+                onClick={handleCloseModal}
+                className="text-purple-400 hover:text-purple-200 text-sm font-bold transition-colors cursor-pointer"
+              >
+                ✕
+              </button>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label htmlFor="clinicaNome" className="block text-xs font-bold text-slate-600 uppercase mb-1">Nome *</label>
+                <label htmlFor="clinicaNome" className="block text-xs font-bold text-purple-300 uppercase tracking-wider mb-1">
+                  Nome *
+                </label>
                 <input
                   id="clinicaNome"
                   type="text"
@@ -200,43 +213,47 @@ export default function ClinicasPage() {
                   value={nome}
                   onChange={(e) => setNome(e.target.value)}
                   placeholder="Ex: Clínica Veterinária Central"
-                  className="w-full px-4 py-2.5 rounded-sm border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-slate-800 text-sm"
+                  className="w-full px-4 py-2.5 rounded-xl bg-[#090714] border border-purple-800/60 focus:outline-none focus:ring-2 focus:ring-emerald-400 text-purple-100 placeholder-purple-400/40 text-sm transition-all"
                 />
               </div>
               <div>
-                <label htmlFor="clinicaEndereco" className="block text-xs font-bold text-slate-600 uppercase mb-1">Endereço</label>
+                <label htmlFor="clinicaEndereco" className="block text-xs font-bold text-purple-300 uppercase tracking-wider mb-1">
+                  Endereço
+                </label>
                 <input
                   id="clinicaEndereco"
                   type="text"
                   value={endereco}
                   onChange={(e) => setEndereco(e.target.value)}
                   placeholder="Ex: Rua Principal, 123"
-                  className="w-full px-4 py-2.5 rounded-sm border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-slate-800 text-sm"
+                  className="w-full px-4 py-2.5 rounded-xl bg-[#090714] border border-purple-800/60 focus:outline-none focus:ring-2 focus:ring-emerald-400 text-purple-100 placeholder-purple-400/40 text-sm transition-all"
                 />
               </div>
               <div>
-                <label htmlFor="clinicaTel" className="block text-xs font-bold text-slate-600 uppercase mb-1">Telefone</label>
+                <label htmlFor="clinicaTel" className="block text-xs font-bold text-purple-300 uppercase tracking-wider mb-1">
+                  Telefone
+                </label>
                 <input
                   id="clinicaTel"
                   type="text"
                   value={telefone}
                   onChange={(e) => setTelefone(e.target.value)}
                   placeholder="Ex: (87) 3861-0000"
-                  className="w-full px-4 py-2.5 rounded-sm border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-slate-800 text-sm"
+                  className="w-full px-4 py-2.5 rounded-xl bg-[#090714] border border-purple-800/60 focus:outline-none focus:ring-2 focus:ring-emerald-400 text-purple-100 placeholder-purple-400/40 text-sm transition-all"
                 />
               </div>
 
-              <div className="flex justify-end gap-3 pt-4 border-t border-slate-200/60 mt-6">
+              <div className="flex justify-end gap-3 pt-4 border-t border-purple-900/40 mt-6">
                 <button
                   type="button"
                   onClick={handleCloseModal}
-                  className="px-5 py-2.5 rounded-sm font-semibold text-slate-600 hover:bg-slate-100 text-sm transition cursor-pointer"
+                  className="px-5 py-2.5 rounded-xl font-bold text-purple-300 hover:bg-purple-900/40 text-sm transition cursor-pointer"
                 >
                   Cancelar
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2.5 rounded-sm font-semibold bg-teal-500 hover:bg-teal-600 text-white text-sm shadow-md transition cursor-pointer"
+                  className="px-5 py-2.5 rounded-xl font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-sm shadow-md shadow-emerald-500/20 transition cursor-pointer"
                 >
                   {editingClinica ? 'Salvar Alterações' : 'Cadastrar'}
                 </button>
